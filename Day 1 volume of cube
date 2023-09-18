@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+int main(){
+int a,b,c,R;
+    a=2222;
+    b=555;
+    c=9;
+    R=(a*b*c);
+    printf("%d",R);
+    return0;
+}
