@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+// Function to check if it is possible to measure the weight of the object
+int canMeasureWeight(int weights[], int W) {
+    // Create an array to store possible weight values
+    int possibleWeights[200001] = {0};
+
+    // Add 0 as a possible weight (no weights)
+    possibleWeights[0] = 1;
+
+    // Iterate through the given weights and generate possible combinations
+    for (int i = 0; i < 6; i++) {
+        for (int j = 200000; j >= 0; j--) {
+            if (possibleWeights[j]) {
+                possibleWeights[j + weights[i]] = 1;
+                possibleWeights[j - weights[i]] = 1;
+            }
+        }
+    }
+
+    // Check if the target weight W is in the array of possible weights
+    return possibleWeights[W];
+}
+
+int main() {
+    int T;
+    scanf("%d", &T);
+
+    for (int t = 0; t < T; t++) {
+        int A, B, C, W, X, Y, Z;
+        scanf("%d %d %d %d %d %d %d", &A, &B, &C, &W, &X, &Y, &Z);
+        int weights[6] = {A, B, C, X, Y, Z};
+        int result = canMeasureWeight(weights, W);
+        if (result == 1) {
+            printf("YES\n");
+        } else {
+            printf("NO\n");
+        }
+    }
+
+    return 0;
+}
