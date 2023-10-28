@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int minCoins(int X) {
+    if (X % 5 != 0) {
+        return -1;  // Impossible to pay X rupees with denominations of 5 and 10
+    }
+
+    int dp[X + 1];
+    dp[0] = 0;
+
+    for (int x = 5; x <= X; x += 5) {
+        dp[x] = dp[x - 5] + 1;
+    }
+
+    for (int x = 10; x <= X; x += 10) {
+        dp[x] = dp[x - 10] + 1;
+    }
+
+    return dp[X];
+}
+
+int main() {
+    int X;
+    scanf("%d", &X);
+    int result = minCoins(X);
+    printf("%d\n", result);
+    return 0;
+}
