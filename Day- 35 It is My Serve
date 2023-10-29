@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int totalPoints = 21; // You can change the total points as needed
+    int alicePoints = 0;
+    int bobPoints = 0;
+    int servingPlayer = 1; // 1 for Alice, 2 for Bob
+
+    while (alicePoints < totalPoints && bobPoints < totalPoints) {
+        // Check if the serving player is Alice (1) or Bob (2)
+        if (servingPlayer == 1) {
+            // Alice serves
+            printf("Alice serves.\n");
+            alicePoints++;
+        } else {
+            // Bob serves
+            printf("Bob serves.\n");
+            bobPoints++;
+        }
+
+        // Switch the serving player every 2 serves
+        if ((alicePoints + bobPoints) % 2 == 0) {
+            servingPlayer = (servingPlayer == 1) ? 2 : 1;
+        }
+    }
+
+    // Determine the winner
+    if (alicePoints >= totalPoints) {
+        printf("Alice wins the game with %d points!\n", alicePoints);
+    } else {
+        printf("Bob wins the game with %d points!\n", bobPoints);
+    }
+
+    return 0;
+}
