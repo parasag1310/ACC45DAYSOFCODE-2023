@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int N, M;
+    scanf("%d %d", &N, &M);
+    
+    int extra_shoes = 0;
+    
+    if (N > M) {
+        // Chef already has more left shoes than friends, so he needs to buy right shoes.
+        extra_shoes = N - M;
+    }
+    
+    printf("%d\n", extra_shoes);
+    
+    return 0;
+}
