@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int D, X, Y;
+    
+    // Input the values of D, X, and Y
+    scanf("%d %d %d", &D, &X, &Y);
+    
+    // Calculate the absolute difference between the skills of the teams
+    int skillDifference = abs(X - Y);
+    
+    // Check if the skill difference is less than or equal to D
+    if (skillDifference <= D) {
+        printf("Chef finds the game interesting.\n");
+    } else {
+        printf("Chef does not find the game interesting.\n");
+    }
+    
+    return 0;
+}
