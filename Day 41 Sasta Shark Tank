@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    // Define the offered amounts and ownership percentages
+    double offerA_dollars = 300; // Replace with the actual offer amount
+    double ownershipA_percentage = 10; // Replace with the actual ownership percentage
+    double offerB_dollars = 500; // Replace with the actual offer amount
+    double ownershipB_percentage = 20; // Replace with the actual ownership percentage
+
+    // Calculate the valuations of the company for each investor
+    double valuationA = (offerA_dollars * 100) / ownershipA_percentage;
+    double valuationB = (offerB_dollars * 100) / ownershipB_percentage;
+
+    // Compare the valuations and determine the result
+    if (valuationA > valuationB) {
+        printf("Devendra should accept offer A.\n");
+    } else if (valuationA < valuationB) {
+        printf("Devendra should accept offer B.\n");
+    } else {
+        printf("Both offers are equally good.\n");
+    }
+
+    return 0;
+}
