@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int N = 100;  // Total number of buns in the mall
+    int X = 5;    // Buns needed per person per day
+    int D = 10;   // Days they can survive after food supply runs out
+    int totalFamilyMembers = 5;
+
+    int daysSurvived = 0;
+    int bunsConsumed = 0;
+
+    while (N >= X * totalFamilyMembers) {
+        bunsConsumed += X * totalFamilyMembers;
+        N -= X * totalFamilyMembers;
+        daysSurvived++;
+    }
+
+    if (D > 0) {
+        int additionalSurvivalDays = N / (X * totalFamilyMembers);
+        if (additionalSurvivalDays < D) {
+            daysSurvived += additionalSurvivalDays;
+        } else {
+            daysSurvived += D;
+        }
+    }
+
+    printf("Alice and her family can survive for %d days.\n", daysSurvived);
+
+    return 0;
+}
