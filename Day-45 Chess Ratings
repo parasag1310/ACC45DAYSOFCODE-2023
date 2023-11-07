@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int currentRating, targetRating, ratingIncrease;
+    printf("Enter Alice's current rating: ");
+    scanf("%d", &currentRating);
+    printf("Enter the target rating (Y): ");
+    scanf("%d", &targetRating);
+    printf("Enter the rating increase per win: ");
+    scanf("%d", &ratingIncrease);
+
+    int gamesNeeded = (targetRating - currentRating + ratingIncrease - 1) / ratingIncrease;
+    
+    printf("Alice needs to win at least %d games to reach a rating of %d or higher.\n", gamesNeeded, targetRating);
+
+    return 0;
+}
